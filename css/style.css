@@ -1,0 +1,207 @@
+/************************************************************************************************* algemene styles voor HTML tags*/
+body, body *{ box-sizing: border-box;}
+body *{
+	font-family: Verdana;
+}
+body{
+	margin:0;
+	padding:0;
+	background-size: cover;
+	font-size: 16px;
+	line-height: 1.3em;
+}
+h1, h2, h3{
+	font-weight: normal;
+	line-height: 1.4em;
+}
+h1 {
+	margin-top: 1em;/*de intro van een periode heeft een beetje ruimte nodig, anders staat het menu er overheen*/
+}
+header h1 {
+	margin-top: 0em;/*de intro moet geen ruimte boven hebben*/
+}
+
+a{
+    text-decoration:none;
+    color: black;
+}
+a:hover{/*als je met je muis over een element gaat heet dat hover*/
+    text-decoration:underline;
+}
+/************************************************************************************************* achtergrondplaatjes body*/
+body.start{/*de startpagina heeft een ander achtergrondplaatje dan de andere pagina's*/
+
+}
+body.opdracht{
+
+}
+/************************************************************************************************* navigatie*/
+#nav {
+	overflow: hidden;
+	background-color: #333;
+}
+#nav {
+    position: -webkit-sticky;
+    position: sticky; /*dit zorgt ervoor dat de navigatie altijd bovenaan de pagina blijft plakken*/
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	width: 100%;
+}
+
+/************************************************************************************************* nav hyperlinks */
+#nav a {
+	display: block;
+	color: #FFF;
+	text-align: center;
+	padding: 0 2em;
+	text-decoration: none;
+	line-height: 3em;
+}
+#nav a:hover,
+#nav a.sel {
+	background-color: #fff;color:#333;
+}
+#nav > ul {
+	background-color: rgba(0, 0, 0, .8);
+}
+#nav > ul,
+#nav > ul > li{
+	list-style: none;
+	margin:0;
+	padding:0;
+}
+#nav > ul > li{
+	float:left;
+	max-width: 20%;
+}
+/*clearfix is om de float op te heffenx*/
+.clearfix::after{
+	content:'';
+	clear:both;
+	display:table;
+}
+/************************************************************************************************* Page content */
+.content {
+	padding: 3em;
+   	color: #666;
+}
+/************************************************************************************************* verschillende sections */
+
+section#tegels{
+    min-height: 100vh;
+    background-color: white;
+    padding: 50px;
+	margin:0;
+	display: flex;/* de div #tegels is een flex-box container, elementen daarbinnen zijn flexibel in te delen */
+	flex-flow: row wrap;
+	justify-content: flex-start;
+    align-items: stretch;
+}
+.tegel{
+	padding: 50px; /*ruimte van de rand van de tegel tot de content in de tegel*/
+	margin: 0; /*ruimte buiten de rand van de tegel, tussen de tegels dus*/
+    
+    flex-grow: 0; /*mag wel/niet GROTER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
+    flex-shrink: 1; /*mag wel/niet KLEINER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
+    flex-basis: auto; /*gewenste breedte van het element (cijfer in %, px, em vh, vw of auto)*/
+    
+	min-height: 300px; /*min staat voor minimaal. Minimale hoogte*/
+    
+    display: flex;/*de tegel is zelf ook weer een flex-box container*/
+	
+}
+/*Hieronder staan de gewenste breedtes van de tegels*/
+.tegel.kwart_breed{flex-basis: 25%;}
+.tegel.een_derde_breed{flex-basis: calc(100% / 3);}/*calc staat voor calculate, bereken*/
+.tegel.helft_breed{flex-basis: 50%;}
+.tegel.twee_derde_breed{flex-basis: calc(100% / 3 * 2);}
+
+.tegel.een_hoog{min-height: 300px;}
+.tegel.twee_hoog{min-height: 600px;}
+.tegel.drie_hoog{min-height: 900px;}
+
+/*opmaak aan de binnenkant van een tegel*/
+.tegel .tegel_binnen{
+    flex: 0 1 100%;
+	line-height: 1.3em;
+	hyphens: auto; /*maakt het streepje bij het afbreken van een woord op de volgende regel*/
+	word-break: break-word;
+    /*animatie van achtergrond plaatje en kleur bij hover*/
+	-webkit-transition: * 0.2s ease-in-out,;
+	transition: * 0.2s ease-in-out;
+    
+    color: #777; /*doe eens rechtermuisklik op de kleur en kies jouw eigen kleur */
+    background-color: rgb(235, 235, 235);
+    padding-bottom: 10px;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+/*dit geldt voor alle plaatjes binnen een tegel*/
+.tegel img,
+.tegel embed,
+.tegel iframe{
+    max-width: 100%;
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    flex: 0 1 100%;
+}
+
+.tegel .tekst{
+    padding: 0 15px;
+    padding: 0 15px;
+}
+/*dit geldt voor alle kopjes binnen een tegel*/
+.tegel_binnen h2 {
+    line-height: 1.8em;
+}
+/*paragraph teksten binnen een tegel*/
+.tegel_binnen p {
+    line-height: 1.2em;
+    font-size: 1rem;
+}
+.tekst > a:nth-child(1) {/*linkje meteen onder een iframe of embed*/
+    line-height: 2em;
+}
+
+/***************************** FOOTER */
+footer{
+    display: block;
+    background-color: black;
+    color: #ccc;
+    font-size: .8rem;
+    height: 4em;
+    position: sticky;
+    bottom: 0;
+}
+footer ul, 
+footer li{
+    list-style: none;
+    float:left;
+}
+footer li{
+    padding: 0 1em;
+}
+/******************************************************************************************Mediaqueries*/
+/*voor schermen tot  400px breed: mobiel portait modus */
+@media screen AND (max-width: 450px) AND (orientation: portrait){
+    section#tegels{
+        flex-flow: column nowrap;
+        padding:0;
+    }
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
+        flex-basis: 100%;
+    }
+    .tegel{padding:1em 0;}
+}
