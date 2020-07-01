@@ -23,7 +23,7 @@ header h1 {
 
 a{
     text-decoration:none;
-    color: black;
+    color: #3e405c;/*kleur wijzigen? Rechtermuisklik op de kleur > kies 'snel wijzigen' > en selecteer een kleur*/
 }
 a:hover{/*als je met je muis over een element gaat heet dat hover*/
     text-decoration:underline;
@@ -36,53 +36,120 @@ body.opdracht{
 
 }
 /************************************************************************************************* navigatie*/
-#nav {
-	overflow: hidden;
-	background-color: #333;
+
+/*HAMBURGER MENU*/
+.menu-toggle,
+.hamburger{/*hamburger en menu-toggle checkbox zijn net zo groot en staan over elkaar heen, menu-toggle checkbox bovenaan*/
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    cursor: pointer;
 }
-#nav {
-    position: -webkit-sticky;
-    position: sticky; /*dit zorgt ervoor dat de navigatie altijd bovenaan de pagina blijft plakken*/
-	top: 0;
-	background-color: rgba(0, 0, 0, 0.8);
-	width: 100%;
+.hamburger{/*hamburger ligt onder de menu-toggle checkbox*/
+    z-index: 99998;
+    transition: 0.3s;
+}
+.menu-toggle{/*menu-toggle checkbox ligt boven alles*/
+    z-index: 99999; 
+    opacity: 0;
+}
+.menu{
+    opacity: 0;/*volledig transparant*/
+    position: fixed;
+    top:0;
+    right: -50vw;/*menu staat buiten beeld*/
+    width: 50vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    height: 100vh;
+    z-index: 99997;/*de menu liggen overal overheen, behalve over de menu-toggle checkbox en het hamburgermenu*/
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity 1s, right 1s;
 }
 
-/************************************************************************************************* nav hyperlinks */
+.menu-toggle:checked ~ .menu{/*menu wordt zichtbaar bij klik op menu-toggler checkbox*/
+    opacity: 100;/*volledig zichtbaar*/
+    right: 0;
+}
+/***************************************************************Hamburgermenu balkjes die bij hover en select een kruis worden*/
+.hamburger .bar {
+   width: 100%;*/
+   height: 16%;
+   padding-top: 16%;
+   background-color: #000;
+   margin: 16% 0 0 0;
+   transition: 0.2s;
+}
+.hamburger:hover, 
+.menu-toggle:hover + .hamburger{transform: scale(1.05);}
+
+.menu-toggle:checked + .hamburger .bar{background-color:#FFF;}
+.hamburger .bar1{margin-top: 0;}
+.hamburger .bar2{margin-bottom: 0;}
+.hamburger .bar3{margin-top: -16%;}
+
+.menu-toggle:checked + .hamburger .bar1, 
+.menu-toggle:checked + .hamburger .bar4 {opacity: 0;}
+
+.menu-toggle:checked + .hamburger .bar2 {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transform-origin: center center;
+}
+.menu-toggle:checked + .hamburger .bar3 {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    transform-origin: center center;
+}
+/****************************************************************/
+
+/************************************************************************************************* navigatie hyperlinks */
+#nav > ul,
+#nav > ul > li{
+	list-style: none;
+}
+#nav > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 0;
+    padding: 15px 0 0 0;  
+}
+#nav > ul > li{
+	width: 50%;
+	flex:0 1 auto;
+    margin:0;
+    padding: 0 90px 0 0;
+    text-align: right;
+    border-bottom: 1px solid transparent;
+}
 #nav a {
 	display: block;
 	color: #FFF;
-	text-align: center;
 	padding: 0 2em;
 	text-decoration: none;
 	line-height: 3em;
 }
 #nav a:hover,
-#nav a.sel {
-	background-color: #fff;color:#333;
+#nav a.selected {
+	background-color: #FFF;
+    color:#000;
 }
-#nav > ul {
-	background-color: rgba(0, 0, 0, .8);
-}
-#nav > ul,
-#nav > ul > li{
-	list-style: none;
-	margin:0;
-	padding:0;
-}
-#nav > ul > li{
-	float:left;
-	max-width: 20%;
-}
-/*clearfix is om de float op te heffenx*/
+/*clearfix is om de float op te heffen*/
 .clearfix::after{
 	content:'';
 	clear:both;
 	display:table;
 }
+/************************************************************************************************* Header/naam/hero afbeelding etc.. */
+header{
+    padding: 50px 100px;
+    border-bottom: 1px solid black;
+}
 /************************************************************************************************* Page content */
 .content {
-	padding: 3em;
    	color: #666;
 }
 /************************************************************************************************* verschillende sections */
@@ -124,14 +191,14 @@ section#tegels{
 .tegel .tegel_binnen{
     flex: 0 1 100%;
 	line-height: 1.3em;
-	hyphens: auto; /*maakt het streepje bij het afbreken van een woord op de volgende regel*/
 	word-break: break-word;
     /*animatie van achtergrond plaatje en kleur bij hover*/
 	-webkit-transition: * 0.2s ease-in-out,;
 	transition: * 0.2s ease-in-out;
     
-    color: #777; /*doe eens rechtermuisklik op de kleur en kies jouw eigen kleur */
+    color: #333; /*doe eens rechtermuisklik op de kleur en kies jouw eigen kleur */
     background-color: rgb(235, 235, 235);
+    border: 1px solid black;
     padding-bottom: 10px;
     
     display: flex;
@@ -159,6 +226,7 @@ section#tegels{
 }
 /*dit geldt voor alle kopjes binnen een tegel*/
 .tegel_binnen h2 {
+    color: black;
     line-height: 1.8em;
 }
 /*paragraph teksten binnen een tegel*/
@@ -167,6 +235,7 @@ section#tegels{
     font-size: 1rem;
 }
 .tekst > a:nth-child(1) {/*linkje meteen onder een iframe of embed*/
+    font-size: 0.8rem;
     line-height: 2em;
 }
 
@@ -188,9 +257,22 @@ footer li{
 footer li{
     padding: 0 1em;
 }
-/******************************************************************************************Mediaqueries*/
-/*voor schermen tot  400px breed: mobiel portait modus */
+/******************************************************************************************Mediaqueries voor mobiel*/
+/*voor schermen tot  450px breed: mobiel portait modus */
 @media screen AND (max-width: 450px) AND (orientation: portrait){
+    .menu{
+        right: -100vw;/*menu staat buiten beeld*/
+        width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    }
+    #nav > ul{
+        padding-top: 90px;
+    }
+    #nav > ul > li{
+        width: 100%;
+        padding: 0 1em 0 1em;
+        text-align: left;
+    }
+    header{padding:1em;}
     section#tegels{
         flex-flow: column nowrap;
         padding:0;
@@ -204,4 +286,7 @@ footer li{
         flex-basis: 100%;
     }
     .tegel{padding:1em 0;}
+    .tegel .tegel_binnen{
+        border: none;
+    }
 }

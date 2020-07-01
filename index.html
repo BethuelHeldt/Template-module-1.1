@@ -2,6 +2,7 @@
 <html lang="nl">
 
 <head>
+    <!--ALLES WAT BINNEN DE HEAD STAAT IS NIET ZICHTBAAR BINNEN DE BROWSER-->
     <meta charset="utf-8">
     <title>Naam student - De jeugd van tegenwoordig</title>
     <meta name="Keywords" content="portfolio, Mediacollege Amsterdam, college, module 1.1, de jeugd van tegenwoordig" />
@@ -12,24 +13,32 @@
 </head>
 
 <body>
+    <!--ALLES WAT BINNEN DE <BODY> STAAT IS WEL ZICHTBAAR IN DE BROWSER-->
     <div id="container">
         <article>
-            
-            <!-- TITEL -->
+
+            <!-- BOVENKANT PAGINA MET TITEL -->
             <header class="content">
                 <h1>Naam student</h1>
                 <h2>De jeugd van tegenwoordig</h2>
                 <h3>MV1X | 2020/2021</h3>
-            </header> 
-            
+            </header>
+
             <!-- NAVIGATIE -->
             <section id="nav">
-                <ul class="headernav clearfix">
+                <input type="checkbox" name="menu-toggle" class="menu-toggle" />
+                <div class="hamburger">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                    <div class="bar bar4"></div>
+                </div>
+                <ul class="menu clearfix">
                     <li><a class="navlink" href="../index.html">Start</a></li>
-                    <li><a class="navlink" href="../module-1-1/index.html#tegels">Module 1.1</a></li>
-                    <li><a class="navlink" href="../module-1-2/index.html#tegels">Module 1.2</a></li>
-                    <li><a class="navlink" href="../module-2-1/index.html#tegels">Module 2.1</a></li>
-                    <li><a class="navlink" href="../module-2-2/index.html#tegels">Module 2.2</a></li>
+                    <li><a class="navlink selected" href="../Portfolio-module-1.1/index.html#tegels">Module 1.1</a></li>
+                    <li><a class="navlink" href="../Portfolio-module-1.2/index.html#tegels">Module 1.2</a></li>
+                    <li><a class="navlink" href="../Portfolio-module-2.1/index.html#tegels">Module 2.1</a></li>
+                    <li><a class="navlink" href="../Portfolio-module-2.2/index.html#tegels">Module 2.2</a></li>
                 </ul>
             </section>
 
@@ -37,27 +46,36 @@
             <section id="tegels" class="content">
                 <div id="tegel_01" class="tegel twee_derde_breed drie_hoog">
                     <div class="tegel_binnen">
+                        <!-- In een iframe (hieronder) kun je van alles laden, zoals een filmpje van Microsoft Stream of Youtube -->
                         <iframe width="100%" height="360" src="https://web.microsoftstream.com/embed/video/7f65b8e1-a441-49d4-9651-abb49de05bc6?autoplay=false&amp;showinfo=true" allowfullscreen style="border:none;"></iframe>
                         <div class="tekst">
-                            <h2>Product Titel</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <h2>Minidocumentaire</h2>
+                            <h3>Unit Motion Graphics</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
                 <div id="tegel_02" class="tegel een_derde_breed">
                     <div class="tegel_binnen">
-                        <a href="images/dummy-afbeelding.png" target="_blank"><img src="images/dummy-afbeelding.png" alt="Plaats hier de beschrijving van deze afbeelding"></a>
+                        <!--In een embed tag kun je bijvoorbeeld een pdf laden. -->
+                        <embed src="images/dummy-document.pdf" alt="Plaats hier de beschrijving van deze afbeelding">
                         <div class="tekst">
-                            <h2>Product Titel</h2>
+                            <a href="images/dummy-document.pdf" target="_blank">Klik hier voor de vergroting</a>
+                            <h2>Onderzoeksverslag gekozen subcultuur</h2>
+                            <h3>Unit Onderzoek</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
                 <div id="tegel_03" class="tegel kwart_breed">
                     <div class="tegel_binnen">
-                        <a href="images/dummy-afbeelding.png" target="_blank"><img src="images/dummy-afbeelding.png" alt="Plaats hier de beschrijving van deze afbeelding"></a>
+                        <!--In een embed tag kun je bijvoorbeeld een pdf laden. -->
+                        <embed src="images/dummy-document.pdf" alt="Plaats hier de beschrijving van deze afbeelding">
                         <div class="tekst">
-                            <h2>Product Titel</h2>
+                            <a href="images/dummy-document.pdf" target="_blank">Klik hier voor de vergroting</a>
+                            <h2>Persona</h2>
+                            <h3>Unit Onderzoek</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +83,9 @@
                     <div class="tegel_binnen">
                         <a href="images/dummy-afbeelding.png" target="_blank"><img src="images/dummy-afbeelding.png" alt="Plaats hier de beschrijving van deze afbeelding"></a>
                         <div class="tekst">
-                            <h2>Product Titel</h2>
+                            <h2>Digitaal styleboard</h2>
+                            <h3>Unit Flex</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +94,9 @@
                         <embed src="images/dummy-document.pdf" alt="Plaats hier de beschrijving van deze afbeelding">
                         <div class="tekst">
                             <a href="images/dummy-document.pdf" target="_blank">Klik hier voor de vergroting</a>
-                            <h2>Product Titel</h2>
+                            <h2>Informatieve illustratie</h2>
+                            <h3>Unit Vormgeving</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
@@ -82,16 +104,21 @@
                     <div class="tegel_binnen">
                         <a href="images/dummy-afbeelding.png" target="_blank"><img src="images/dummy-afbeelding.png" alt="Plaats hier de beschrijving van deze afbeelding"></a>
                         <div class="tekst">
-                            <h2>Product Titel</h2>
+                            <h2>LP Hoes</h2>
+                            <h3>Unit Beroepsopdracht experiment</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
                 <div id="tegel_07" class="tegel helft_breed twee_hoog">
                     <div class="tegel_binnen">
+                        <!--In een embed tag kun je bijvoorbeeld een pdf laden. -->
                         <embed src="images/dummy-document.pdf" alt="Plaats hier de beschrijving van deze afbeelding">
                         <div class="tekst">
                             <a href="images/dummy-document.pdf" target="_blank">Klik hier voor de vergroting</a>
-                            <h2>Product Titel</h2>
+                            <h2>Ingebonden onderzoeksverslag</h2>
+                            <h3>Unit Beroepsopdracht werkplaats</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
@@ -100,6 +127,8 @@
                         <iframe src="https://welkombijma.nl/" width="100%" height="300px"></iframe>
                         <div class="tekst">
                             <h2>Product Titel</h2>
+                            <h3>Unit Onderzoek</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
@@ -108,6 +137,8 @@
                         <a href="images/dummy-afbeelding.png" target="_blank"><img src="images/dummy-afbeelding.png" alt="Plaats hier de beschrijving van deze afbeelding"></a>
                         <div class="tekst">
                             <h2>Product Titel</h2>
+                            <h3>Unit Onderzoek</h3>
+                            <p>Korte beschrijving/ datum/ etc... </p>
                         </div>
                     </div>
                 </div>
