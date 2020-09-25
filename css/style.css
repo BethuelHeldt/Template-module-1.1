@@ -23,7 +23,7 @@ header h1 {
 
 a{
     text-decoration:none;
-    color: #3e405c;/*kleur wijzigen? Rechtermuisklik op de kleur > kies 'snel wijzigen' > en selecteer een kleur*/
+    color: #f0b;/*kleur wijzigen? Rechtermuisklik op de kleur > kies 'snel wijzigen' > en selecteer een kleur*/
 }
 a:hover{/*als je met je muis over een element gaat heet dat hover*/
     text-decoration:underline;
