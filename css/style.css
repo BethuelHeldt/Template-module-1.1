@@ -51,6 +51,14 @@ body.opdracht{
 .hamburger{/*hamburger ligt onder de menu-toggle checkbox*/
     z-index: 99998;
     transition: 0.3s;
+    background-color: #fff;/*achtergrondkleur en randkleur zijn  nodig als het menu over een donker of zwart vlak valt bij scrollen*/
+    border: 10px solid #FFF;
+    border-bottom-width: 0;
+    box-sizing: content-box;
+}
+.menu-toggle:checked + .hamburger {/*bij selected hamburgerknopje geen achtergrondkleur en randkleur*/
+    background-color: transparent;
+    border-color: transparent;
 }
 .menu-toggle{/*menu-toggle checkbox ligt boven alles*/
     z-index: 99999; 
@@ -119,7 +127,7 @@ body.opdracht{
     padding: 15px 0 0 0;  
 }
 #nav > ul > li{
-	width: 50%;
+	
 	flex:0 1 auto;
     margin:0;
     padding: 0 90px 0 0;
@@ -166,12 +174,12 @@ section#tegels{
     align-items: stretch;
 }
 .tegel{
-	padding: 50px; /*ruimte van de rand van de tegel tot de content in de tegel*/
+	padding: 2vw; /*ruimte van de rand van de tegel tot de content in de tegel*/
 	margin: 0; /*ruimte buiten de rand van de tegel, tussen de tegels dus*/
     
     flex-grow: 0; /*mag wel/niet GROTER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
     flex-shrink: 1; /*mag wel/niet KLEINER zijn dan flex-basis (0 = mag niet of 1 = mag wel)*/
-    flex-basis: auto; /*gewenste breedte van het element (cijfer in %, px, em vh, vw of auto)*/
+    flex-basis: 100%; /*gewenste breedte van het element (cijfer in %, px, em vh, vw of auto)*/
     
 	min-height: 300px; /*min staat voor minimaal. Minimale hoogte*/
     
@@ -183,6 +191,7 @@ section#tegels{
 .tegel.een_derde_breed{flex-basis: calc(100% / 3);}/*calc staat voor calculate, bereken*/
 .tegel.helft_breed{flex-basis: 50%;}
 .tegel.twee_derde_breed{flex-basis: calc(100% / 3 * 2);}
+.tegel.volle_breedte{flex-basis: 100%;}
 
 .tegel.een_hoog{min-height: 300px;}
 .tegel.twee_hoog{min-height: 600px;}
@@ -214,21 +223,23 @@ section#tegels{
 .tegel iframe{
     max-width: 100%;
     width: 100%;
-    min-height: 200px;
+    min-height: 400px;
     height: auto;
     display: block;
     margin: 0 auto;
     flex: 0 1 100%;
 }
-
+.tegel img {
+    min-height: auto;
+}
 .tegel .tekst{
-    padding: 0 15px;
     padding: 0 15px;
 }
 /*dit geldt voor alle kopjes binnen een tegel*/
 .tegel_binnen h2 {
     color: black;
     line-height: 1.8em;
+    padding: 0 15px;
 }
 /*paragraph teksten binnen een tegel*/
 .tegel_binnen p {
@@ -265,45 +276,42 @@ footer li{
         right: -100vw;/*menu staat buiten beeld*/
         width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
     }
-    #nav > ul{
-        padding-top: 90px;
+    
+    /*op mobiel de titels van de site/module en de units boven laten plakken*/
+    header.content{
+        padding: 0;
     }
-    #nav > ul > li{
+    header.content h1 {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
         width: 100%;
-        padding: 0 1em 0 1em;
-        text-align: left;
+        min-height: 40px;
+        padding: 5px 15px;
     }
-    header{padding:1em;}
-    section#tegels{
-        flex-flow: column nowrap;
-        padding:0;
+    header.content h2,
+    header.content h3{
+        padding: 0 15px;
     }
-    .tegel,
-    .tegel.kwart_breed,
-    .tegel.een_derde_breed,
-    .tegel.helft_breed,
-    .tegel.twee_derde_breed{
-        flex: 0 1 auto;
+    header.content h2{font-size:1em;}
+    header.content h3{font-size:.8em;}
+    .tegel_binnen h2 {
+        position: sticky;
+        top: 0;
+        background: #fff;        
+        font-size: 1.5em;        
+        padding-top: 0px;
+        padding-right: 45px;
+        padding-bottom: 5px;
+        padding-left: .5em;
     }
-    .tegel{padding:1em 0;}
-    .tegel .tegel_binnen{
-        border: none;
+
+    .menu-toggle, .hamburger {
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
     }
-    .tegel .tegel_binnen img{
-        max-height: 100vh;
-        width: auto;
-    }
-    .tegel .tegel_binnen embed,
-    .tegel .tegel_binnen iframe{
-        max-height: 100vh;
-        width: 100%;
-    }
-    footer{
-        position: relative;
-    }
-}
-/*voor schermen tot  750px breed: mobiel landscape modus */
-@media screen AND (max-width: 750px) AND (orientation: landscape){
     
     #nav > ul{
         padding-top: 90px;
@@ -323,22 +331,125 @@ footer li{
     .tegel.een_derde_breed,
     .tegel.helft_breed,
     .tegel.twee_derde_breed{
-        flex: 0 1 auto;
+        flex: 0 1 100%;
+    }
+    .tegel{padding:1em 0;}
+    .tegel .tegel_binnen{
+        border: none;
+        min-height: 100vh;/*op mobiel is de tegel altijd beeldvullend*/
+    }
+    .tegel .tegel_binnen img{
+        max-height: calc(100vh - 50px);
+        width: auto;
+    }
+    .tegel .tegel_binnen embed,
+    .tegel .tegel_binnen iframe{
+        max-height: 100vh;
+        height: calc(100vh - 50px);
+        width: 100%;
+    }
+    footer{
+        position: relative;
+    }
+}
+/*voor schermen tot  750px breed: mobiel landscape modus */
+@media screen AND (max-width: 750px) AND (orientation: landscape){
+    header.content h1 {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        width: 100%;
+        min-height: 40px;
+        padding: 5px 15px;
+    }
+    header.content h2,
+    header.content h3{
+        padding: 0 15px;
+    }
+    header.content h2{font-size:1em;}
+    header.content h3{font-size:.8em;}
+    .tegel_binnen h2 {
+        position: sticky;
+        top: 0;
+        background: #fff;        
+        font-size: 1.5em;        
+        padding-top: 0px;
+        padding-right: 45px;
+        padding-bottom: 5px;
+        padding-left: .5em;
+    }
+
+    .menu-toggle, .hamburger {
+        top: 5px;
+        right: 5px;
+        width: 25px;
+        height: 25px;
+    }
+    #nav > ul{
+        padding-top: 90px;
+    }
+    #nav > ul > li{
+        width: 100%;
+        padding: 0 1em 0 1em;
+        text-align: left;
+    }
+    header{padding:1em;}
+    section#tegels{
+        flex-flow: column nowrap;
+        padding:0;
+    }
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
     }
     .tegel{padding:1em 0;}
     .tegel .tegel_binnen{
         border: none;
     }
     .tegel .tegel_binnen img{
-        max-height: 100vh;
+        max-height: calc(100vh - 50px);
         width: auto;
     }
     .tegel .tegel_binnen embed,
     .tegel .tegel_binnen iframe{
         max-height: 100vh;
+        height: calc(100vh - 50px);
         width: 100%;
     }
     footer{
         position: relative;
+    }
+}
+
+/*voor schermen tot  800px breed: tablet portait modus */
+@media screen AND (min-width: 451px) AND (max-width: 880px) AND (orientation: portrait){
+    
+    /*tablet in portrait modus is te smal voor meerdere tegels naast elkaar. Dus alles 100% breed en onder elkaar*/
+    .tegel,
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 100%;
+    }
+    
+    .menu{
+        right: -100vw;/*menu staat buiten beeld*/
+        width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
+    }
+}
+
+/*voor schermen tot  800px breed: tablet landscape modus */
+@media screen AND (min-width: 801px) AND (max-width: 1024px) AND (orientation: landscape){
+    
+    /*tablet in landscape modus is te smal voor 3 of 4 tegels naast elkaar. Dus alles 50% breed*/
+    .tegel.kwart_breed,
+    .tegel.een_derde_breed,
+    .tegel.helft_breed,
+    .tegel.twee_derde_breed{
+        flex: 0 1 50%;
     }
 }
