@@ -3,7 +3,6 @@
     --body-achtergrond-kleur: #fff;
     --tegel-achtergrond-kleur: #333;
     
-    
     --h1-kleur: #fff;/*kleur heading 1*/
     --h2-achtergrond-kleur: #333;/*kleur heading 2*/
     --h2-kleur: #fff;/*kleur heading 2*/
@@ -389,7 +388,7 @@ footer li{
     .tegel_binnen h2 {
         position: sticky;
         top: 0;
-        background: #fff;        
+        background-color: var(--h2-achtergrond-kleur);     
         font-size: 1.5em;        
         padding-top: 0px;
         padding-right: 45px;
@@ -398,10 +397,10 @@ footer li{
     }
 
     .menu-toggle, .hamburger {
-        top: 5px;
-        right: 5px;
-        width: 25px;
-        height: 25px;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: calc(1.8em + 10px);
     }
     #nav > ul{
         padding-top: 90px;
