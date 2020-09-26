@@ -1,3 +1,17 @@
+/************************************************************************************************* kleuren inspireren mij enorm */
+:root{
+    --body-achtergrond-kleur: #fff;
+    --tegel-achtergrond-kleur: #333;
+    
+    
+    --h1-kleur: #fff;/*kleur heading 1*/
+    --h2-achtergrond-kleur: #333;/*kleur heading 2*/
+    --h2-kleur: #fff;/*kleur heading 2*/
+    --h3-kleur: #fff;/*kleur heading 3*/
+    --p-kleur: #fff;/*kleur paragraph tekst*/
+    --a-kleur: magenta;/*kleur linkje*/
+    --a-kleur-hover: #fff;/*kleur linkje als je er met je muis overheen gaat*/
+}
 /************************************************************************************************* algemene styles voor HTML tags*/
 body, body *{ box-sizing: border-box;}
 body *{
@@ -9,6 +23,7 @@ body{
 	background-size: cover;
 	font-size: 16px;
 	line-height: 1.3em;
+    background-color: var(--body-achtergrond-kleur);
 }
 h1, h2, h3{
 	font-weight: normal;
@@ -23,10 +38,11 @@ header h1 {
 
 a{
     text-decoration:none;
-    color: magenta;/*kleur wijzigen? Rechtermuisklik op de kleur > kies 'snel wijzigen' > en selecteer een kleur*/
+    color: var(--a-kleur);
 }
 a:hover{/*als je met je muis over een element gaat heet dat hover*/
     text-decoration:underline;
+    text-decoration-color: var(--a-kleur-hover);
 }
 /************************************************************************************************* achtergrondplaatjes body*/
 body.start{/*de startpagina heeft een ander achtergrondplaatje dan de andere pagina's*/
@@ -82,16 +98,18 @@ body.opdracht{
 }
 /***************************************************************Hamburgermenu balkjes die bij hover en select een kruis worden*/
 .hamburger .bar {
-    width: 100%;*/
+    width: 100%;
     height: 16%;
     padding-top: 16%;
     background-color: #000;
     margin: 16% 0 0 0;
     transition: 0.2s;
-    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.2);
+    
 }
 .hamburger:hover, 
-.menu-toggle:hover + .hamburger{transform: scale(1.05);}
+.menu-toggle:hover + .hamburger{
+    transform: scale(1.05);
+}
 
 .menu-toggle:checked + .hamburger .bar{background-color:#FFF;}
 .hamburger .bar1{margin-top: 0;}
@@ -154,18 +172,13 @@ body.opdracht{
 }
 /************************************************************************************************* Header/naam/hero afbeelding etc.. */
 header{
-    padding: 50px 100px;
-    border-bottom: 1px solid black;
+    padding: 50px calc(50px + 2vw);
 }
-/************************************************************************************************* Page content */
-.content {
-   	color: #666;
-}
+
 /************************************************************************************************* verschillende sections */
 
 section#tegels{
     min-height: 100vh;
-    background-color: white;
     padding: 50px;
 	margin:0;
 	display: flex;/* de div #tegels is een flex-box container, elementen daarbinnen zijn flexibel in te delen */
@@ -205,9 +218,7 @@ section#tegels{
     /*animatie van achtergrond plaatje en kleur bij hover*/
 	-webkit-transition: * 0.2s ease-in-out,;
 	transition: * 0.2s ease-in-out;
-    
-    color: #333; /*doe eens rechtermuisklik op de kleur en kies jouw eigen kleur */
-    background-color: rgb(235, 235, 235);
+    background-color: var(--tegel-achtergrond-kleur);
     border: 1px solid black;
     padding-bottom: 10px;
     
@@ -236,13 +247,21 @@ section#tegels{
     padding: 0 15px;
 }
 /*dit geldt voor alle kopjes binnen een tegel*/
+.tegel_binnen h1 {
+    color: var(--h1-kleur);
+}
 .tegel_binnen h2 {
-    color: black;
     line-height: 1.8em;
     padding: 0 15px;
+    color: var(--h2-kleur);
+    background-color: var(--h2-achtergrond-kleur); 
+}
+.tegel_binnen h3 {
+    color: var(--h3-kleur);
 }
 /*paragraph teksten binnen een tegel*/
 .tegel_binnen p {
+    color: var(--p-kleur);
     line-height: 1.2em;
     font-size: 1rem;
 }
@@ -298,7 +317,6 @@ footer li{
     .tegel_binnen h2 {
         position: sticky;
         top: 0;
-        background: #fff;        
         font-size: 1.5em;        
         padding-top: 0px;
         padding-right: 45px;
@@ -307,10 +325,10 @@ footer li{
     }
 
     .menu-toggle, .hamburger {
-        top: 5px;
-        right: 5px;
-        width: 25px;
-        height: 25px;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: calc(1.8em + 10px);
     }
     
     #nav > ul{
