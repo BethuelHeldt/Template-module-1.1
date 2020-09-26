@@ -293,8 +293,8 @@ footer li{
     padding: .5em 1em;
 }
 /******************************************************************************************Mediaqueries voor mobiel*/
-/*voor schermen tot  450px breed: mobiel portait modus */
-@media screen AND (max-width: 450px) AND (orientation: portrait){
+/*voor schermen tot  540px breed: mobiel portait modus */
+@media screen AND (max-width: 540px) AND (orientation: portrait){
     .menu{
         right: -100vw;/*menu staat buiten beeld*/
         width: 100vw;/*menu is zo breed als een halve pagina, en hij staat buiten beeld*/
@@ -371,6 +371,7 @@ footer li{
         width: 100%;
     }
 }
+
 /*voor schermen tot  750px breed: mobiel landscape modus */
 @media screen AND (max-width: 750px) AND (orientation: landscape){
     header.content h1 {
@@ -440,8 +441,8 @@ footer li{
     }
 }
 
-/*voor schermen tot  800px breed: tablet portait modus */
-@media screen AND (min-width: 451px) AND (max-width: 880px) AND (orientation: portrait){
+/*voor schermen vanaf 541px  tot 880px breed en portait modus: tablet */
+@media screen AND (min-width: 541px) AND (max-width: 880px) AND (orientation: portrait){
     
     /*tablet in portrait modus is te smal voor meerdere tegels naast elkaar. Dus alles 100% breed en onder elkaar*/
     .tegel,
@@ -458,8 +459,8 @@ footer li{
     }
 }
 
-/*voor schermen tot  800px breed: tablet landscape modus */
-@media screen AND (min-width: 801px) AND (max-width: 1024px) AND (orientation: landscape){
+/*voor schermen vanaf 751px breed t/m 1024px breed en landscape modus : tablet*/
+@media screen AND (min-width: 751px) AND (max-width: 1024px) AND (orientation: landscape){
     
     /*tablet in landscape modus is te smal voor 3 of 4 tegels naast elkaar. Dus alles 50% breed*/
     .tegel.kwart_breed,
