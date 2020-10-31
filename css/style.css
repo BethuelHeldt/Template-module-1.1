@@ -233,14 +233,19 @@ section#tegels{
 .tegel iframe{
     max-width: 100%;
     width: 100%;
-    min-height: 400px;
     height: auto;
     display: block;
     margin: 0 auto;
+    
+}
+.tegel embed,
+.tegel iframe{
+    min-height: 400px;
     flex: 0 1 100%;
 }
 .tegel img {
     min-height: auto;
+    flex: 0 1 auto;
 }
 .tegel .tekst{
     padding: 0 15px;
