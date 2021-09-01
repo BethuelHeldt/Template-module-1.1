@@ -1,55 +1,44 @@
-/************************************************************************************************* kleuren inspireren mij enorm */
-:root{
-    --body-achtergrond-kleur: #ffffff;
-    --tegel-achtergrond-kleur: #333;
-    
-    --h1-kleur: #fff;/*kleur heading 1*/
-    --h2-achtergrond-kleur: #333;/*kleur heading 2*/
-    --h2-kleur: #fff;/*kleur heading 2*/
-    --h3-kleur: #fff;/*kleur heading 3*/
-    --p-kleur: #fff;/*kleur paragraph tekst*/
-    --a-kleur: magenta;/*kleur linkje*/
-    --a-kleur-hover: #fff;/*kleur linkje als je er met je muis overheen gaat*/
-}
 /************************************************************************************************* algemene styles voor HTML tags*/
 body, body *{ box-sizing: border-box;}
 body *{
-	font-family: Verdana;
+	font-family: Verdana;/*Hier staat dat alle teksten het Verdana lettertype krijgen. Dit kan per HMTL element weer worden aangepast in de rest van deze stylestheet.*/
 }
 body{
-	margin:0;
-	padding:0;
-	background-size: cover;
-	font-size: 16px;
-	line-height: 1.3em;
-    background-color: var(--body-achtergrond-kleur);
+	margin:0;/*Margin is de ruimte om een HTML element heen. Standaard staat de margin van body op 8px*/
+	padding:0;/*Padding is de ruimte binnen het HTML element. */
+	font-size: 16px;/*Dit is de grootte van de tekst van de body*/
+	line-height: 1.3em;/*Dit is de regelafstand van de body*/
+    background-color: #ffffff;/*dit is de achtergrondkleur van de body*/
 }
 h1, h2, h3{
-	font-weight: normal;
-	line-height: 1.4em;
+	font-weight: normal;/*De kopjes zijn normaal gesproken 'bold' oftewel dik. Ik heb ze op 'normal' gezet.*/
+	line-height: 1.4em;/*De regelafstand van de kopjes*/
 }
 h1 {
 	margin-top: 1em;/*de intro van een periode heeft een beetje ruimte nodig, anders staat het menu er overheen*/
 }
 header h1 {
-	margin-top: 0em;/*de intro moet geen ruimte boven hebben*/
+	margin-top: 0;/*de intro moet geen ruimte boven hebben*/
+    font-size: 2rem;/*de maat van de h1 kop in de header is 2 keer zo groot als de standaard maat van de body tekst. Met de maat 'rem' reken je met de standaard maat van de body tekst. */
+    color: #000000;/*De kleur van de h1 kop in de header is zwart*/
 }
-
+header h2 {
+    font-size: 1.6rem;
+    color: #333333;/*De kleur van de h1 kop in de header is donkergrijs*/
+}
+header h3 {
+    font-size: 1.2rem;
+    color: #666666;/*De kleur van de h1 kop in de header is grijs*/
+}
 a{
-    text-decoration:none;
-    color: var(--a-kleur);
+    text-decoration:none;/*Linkjes krijgen standaard een lijntje onder de tekst. Ik heb dat hier weggehaald*/
+    color: magenta;/*Linkjes zijn altijd blauw, ik heb ze magenta gemaakt. */
 }
 a:hover{/*als je met je muis over een element gaat heet dat hover*/
-    text-decoration:underline;
-    text-decoration-color: var(--a-kleur-hover);
+    text-decoration:underline; /*Als je met je muis over de link gaat komt er een lijntje onder*/
+    color: pink;/*Als je met je muis over de link gaat wordt de tekstkleur roze*/
 }
-/************************************************************************************************* achtergrondplaatjes body*/
-body.start{/*de startpagina heeft een ander achtergrondplaatje dan de andere pagina's*/
 
-}
-body.opdracht{
-
-}
 /************************************************************************************************* navigatie*/
 
 /*HAMBURGER MENU*/
@@ -128,7 +117,6 @@ body.opdracht{
     transform: rotate(-45deg);
     transform-origin: center center;
 }
-/****************************************************************/
 
 /************************************************************************************************* navigatie hyperlinks */
 #nav > ul,
@@ -215,9 +203,9 @@ section#tegels{
 	line-height: 1.3em;
 	word-break: break-word;
     /*animatie van achtergrond plaatje en kleur bij hover*/
-	-webkit-transition: * 0.2s ease-in-out,;
-	transition: * 0.2s ease-in-out;
-    background-color: var(--tegel-achtergrond-kleur);
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+    background-color: #333333;
     border: 1px solid black;
     padding-bottom: 10px;
     
@@ -252,20 +240,20 @@ section#tegels{
 }
 /*dit geldt voor alle kopjes binnen een tegel*/
 .tegel_binnen h1 {
-    color: var(--h1-kleur);
+    color: #FFFFFF;
 }
 .tegel_binnen h2 {
     line-height: 1.8em;
     padding: 0 15px;
-    color: var(--h2-kleur);
-    background-color: var(--h2-achtergrond-kleur); 
+    color: #FFFFFF;
+    background-color: #333333; 
 }
 .tegel_binnen h3 {
-    color: var(--h3-kleur);
+    color: #FFFFFF;
 }
 /*paragraph teksten binnen een tegel*/
 .tegel_binnen p {
-    color: var(--p-kleur);
+    color: #FFFFFF;
     line-height: 1.2em;
     font-size: 1rem;
 }
@@ -396,7 +384,7 @@ footer li{
     .tegel_binnen h2 {
         position: sticky;
         top: 0;
-        background-color: var(--h2-achtergrond-kleur);     
+        background-color: #333333;     
         font-size: 1.5em;        
         padding-top: 0px;
         padding-right: 45px;
