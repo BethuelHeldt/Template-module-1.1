@@ -1,4 +1,4 @@
-# Template module 1
+# Template Portfolio module 1
  Web template module 1 De jeugd van tegenwoordig van het Mediacollege Amsterdam
 
 Dit is de template waarmee je jouw portfolio start.
