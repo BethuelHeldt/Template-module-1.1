@@ -1,5 +1,5 @@
-# Template module 1.1
- Web template module 1.1 Mediacollege Amsterdam
+# Template module 1
+ Web template module 1 De jeugd van tegenwoordig van het Mediacollege Amsterdam
 
 Dit is de template waarmee je jouw portfolio start.
 In de loop van het jaar leer je steeds beter coderen in HTML en CSS. 
