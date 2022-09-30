@@ -19,7 +19,7 @@ h1 {
 }
 header h1 {
 	margin-top: 0;/*de intro moet geen ruimte boven hebben*/
-    font-size: 2rem;/*de maat van de h1 kop in de header is 2 keer zo groot als de standaard maat van de body tekst. Met de maat 'rem' reken je met de standaard maat van de body tekst. */
+    font-size: 3rem;/*de maat van de h1 kop in de header is 2 keer zo groot als de standaard maat van de body tekst. Met de maat 'rem' reken je met de standaard maat van de body tekst. */
     color: #000000;/*De kleur van de h1 kop in de header is zwart*/
 }
 header h2 {
