@@ -235,6 +235,11 @@ section#tegels{
     min-height: auto;
     flex: 0 1 auto;
 }
+.tegel video, 
+.tegel audio, 
+.tegel img {
+    max-width: 100%;
+}
 .tegel .tekst{
     padding: 0 15px;
 }
